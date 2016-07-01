@@ -35,6 +35,14 @@ public class PersonRepositoryIntegrationTest extends IntegrationTest
 		
 		personRepository.delete( person );
 	}
+	
+	@Test
+	public void testDeleteOnePerson() 
+	{
+		personRepository.delete(1L);
+		assertEquals(1, personRepository.count());
+		assertEquals(null, personRepository.findOne(1L));
+	}
 
 	private Person a(PersonBuilder builder) 
 	{
